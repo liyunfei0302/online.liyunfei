@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>LiYunFei & HuChunYing</title>
+
+    <style>
+      body {
+        background: #fcba5d;
+        text-align: center;
+      }
+
+      #content {
+        text-align: center;
+        position: relative;
+        top: 300px;
+      }
+      #liyunfei {
+        color: #c4e0e1;
+        font-size: 80px;
+      }
+      #and {
+        color: #f2f1f6;
+        font-size: 60px;
+        margin: 0 100px;
+      }
+      #huchunying {
+        color: #f79d8b;
+        font-size: 80px;
+      }
+      #print {
+        position: relative;
+        top: 100px;
+        color: #f2f1f6;
+        font-size: 40px;
+      }
+      .width {
+        width: 100px;
+        display: inline-block;
+      }
+    </style>
+
+    <script type="text/javascript">
+      var print;
+      //   var year;
+      //   var month;
+      var day;
+      var hours;
+      var minutes;
+      var seconds;
+      var milliseconds;
+
+      function init() {
+        // year = document.getElementById("year");
+        // month = document.getElementById("month");
+        day = document.getElementById("day");
+        hours = document.getElementById("hours");
+        minutes = document.getElementById("minutes");
+        seconds = document.getElementById("seconds");
+        milliseconds = document.getElementById("milliseconds");
+        setInterval(function() {
+          var startDate = 1379840400000;
+          var now = new Date();
+          //   year.innerHTML = now.getFullYear();
+          //   month.innerHTML = now.getMonth();
+          day.innerHTML = Math.floor((now.getTime() - startDate) / 86400000);
+          hours.innerHTML = Math.floor((now.getTime() - startDate) % 86400000 / 3600000);
+          minutes.innerHTML = Math.floor((now.getTime() - startDate) % 86400000 % 3600000 / 60000);
+          seconds.innerHTML = now.getSeconds((now.getTime() - startDate) % 86400000 % 3600000 % 60000 / 1000);
+          milliseconds.innerHTML = now.getMilliseconds((now.getTime() - startDate) % 86400000 % 3600000 % 60000 % 1000);
+        }, 1);
+      }
+    </script>
+  </head>
+
+  <body onload="init()">
+    <div id="content">
+      <span id="liyunfei">李云飞</span>
+      <span id="and">&</span>
+      <span id="huchunying">胡春颖</span>
+      <br />
+      <div id="print">
+        <span>在一起</span>
+        <!-- <span id="year" class="width"></span>
+        <span> 年 </span>
+        <span id="month" class="width"></span>
+        <span> 月 </span> -->
+        <span id="day" class="width"></span>
+        <span> 天 </span>
+        <span id="hours" class="width"></span>
+        <span> 小时 </span>
+        <span id="minutes" class="width"></span>
+        <span> 分 </span>
+        <span id="seconds" class="width"></span>
+        <span> 秒 </span>
+        <span id="milliseconds" class="width"></span>
+        <span> 毫秒</span>
+      </div>
+    </div>
+  </body>
+</html>
